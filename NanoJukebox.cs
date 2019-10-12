@@ -11,9 +11,9 @@ using System.IO;
 
 namespace Nano_Jukebox
 {
-    public partial class Form1 : Form
+    public partial class NanoJukebox : Form
     {
-        public Form1()
+        public NanoJukebox()
         {
             DirectoryInfo dir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
             FileInfo[] songs = dir.GetFiles("*.mp3,*.mp4");
