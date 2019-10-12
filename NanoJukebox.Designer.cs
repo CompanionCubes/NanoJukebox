@@ -139,6 +139,7 @@
             // 
             // Label_LibrarySongTitle
             // 
+            this.Label_LibrarySongTitle.AccessibleDescription = "LibrarySongTitle";
             this.Label_LibrarySongTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label_LibrarySongTitle.AutoSize = true;
