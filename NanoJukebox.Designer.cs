@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NanoJukebox));
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Panel_Library = new System.Windows.Forms.Panel();
             this.Panel_LibrarySong = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -48,7 +48,7 @@
             this.Image_NowPlaying = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.Panel_Library.SuspendLayout();
             this.Panel_LibrarySong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -70,20 +70,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Library";
             // 
-            // panel1
+            // Panel_Library
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.Panel_LibrarySong);
-            this.panel1.Controls.Add(this.Label_LibraryPage);
-            this.panel1.Controls.Add(this.Button_LibraryNext);
-            this.panel1.Controls.Add(this.Button_LibraryPrev);
-            this.panel1.Location = new System.Drawing.Point(12, 69);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(851, 286);
-            this.panel1.TabIndex = 2;
+            this.Panel_Library.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Panel_Library.Controls.Add(this.Panel_LibrarySong);
+            this.Panel_Library.Controls.Add(this.Label_LibraryPage);
+            this.Panel_Library.Controls.Add(this.Button_LibraryNext);
+            this.Panel_Library.Controls.Add(this.Button_LibraryPrev);
+            this.Panel_Library.Location = new System.Drawing.Point(12, 69);
+            this.Panel_Library.Name = "Panel_Library";
+            this.Panel_Library.Size = new System.Drawing.Size(851, 286);
+            this.Panel_Library.TabIndex = 2;
             // 
             // Panel_LibrarySong
             // 
+            this.Panel_LibrarySong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel_LibrarySong.Controls.Add(this.label4);
             this.Panel_LibrarySong.Controls.Add(this.pictureBox3);
             this.Panel_LibrarySong.Controls.Add(this.Label_LibrarySongArtist);
@@ -97,6 +100,8 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Nunito Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
@@ -108,6 +113,8 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::Nano_Jukebox.Properties.Resources.nano_mark;
             this.pictureBox3.Location = new System.Drawing.Point(76, 55);
@@ -119,6 +126,8 @@
             // 
             // Label_LibrarySongArtist
             // 
+            this.Label_LibrarySongArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Label_LibrarySongArtist.AutoSize = true;
             this.Label_LibrarySongArtist.Font = new System.Drawing.Font("Nunito Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_LibrarySongArtist.ForeColor = System.Drawing.Color.White;
@@ -130,6 +139,8 @@
             // 
             // Label_LibrarySongTitle
             // 
+            this.Label_LibrarySongTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Label_LibrarySongTitle.AutoSize = true;
             this.Label_LibrarySongTitle.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_LibrarySongTitle.ForeColor = System.Drawing.Color.White;
@@ -271,7 +282,7 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // NanoJukebox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -280,19 +291,19 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Panel_Library);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "NanoJukebox";
             this.ShowIcon = false;
             this.Text = "Nano Jukebox";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Panel_Library.ResumeLayout(false);
+            this.Panel_Library.PerformLayout();
             this.Panel_LibrarySong.ResumeLayout(false);
             this.Panel_LibrarySong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -312,7 +323,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Panel_Library;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ProgressBar Progress_NowPlaying;

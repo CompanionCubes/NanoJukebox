@@ -28,7 +28,14 @@ namespace Nano_Jukebox
             int y = 0;
             foreach (FileInfo song in songs)
             {
+                //Console.WriteLine(song.ToString());
+
                 Panel NewPanel = new Panel();
+                //NewPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                System.Drawing.Point loc = new System.Drawing.Point(x, y);
+                NewPanel.Location = loc;
+                Panel_Library.Controls.Add(NewPanel);
+
                 foreach (Control c in Panel_LibrarySong.Controls)
                 {
                     if (c.AccessibleDescription == "LibrarySongTitle")
@@ -39,9 +46,6 @@ namespace Nano_Jukebox
                     NewPanel.Controls.Add(c);
                 }
 
-                System.Drawing.Point loc = new System.Drawing.Point(x, y);
-                NewPanel.Location = loc;
-
                 x = x + 190;
                 if (x > 190 * 6)
                 {
@@ -51,8 +55,6 @@ namespace Nano_Jukebox
                 if (y > 100)
                     break;
             }
-
-            Panel_LibrarySong.Visible = false;
         }
     }
 }
