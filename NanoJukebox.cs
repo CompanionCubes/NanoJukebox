@@ -52,6 +52,7 @@ namespace Nano_Jukebox
 
             int x = 0;
             int y = 0;
+            int test_i = 0;
             foreach (FileInfo song in songs)
             {
                 Console.WriteLine(song.ToString());
@@ -66,8 +67,11 @@ namespace Nano_Jukebox
                 {
                     if (c.AccessibleDescription == "LibrarySongTitle")
                     {
+                        test_i++;
+                        Console.WriteLine(test_i);
                         Label l = (Label)c;
                         l.Text = song.ToString();
+                        Console.WriteLine(l.Text);
                     }
                     NewPanel.Controls.Add(c);
                 }
