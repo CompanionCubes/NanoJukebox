@@ -1,0 +1,22 @@
+<div id="nano-button"></div>
+
+<script src="https://brainblocks.io/brainblocks.min.js"></script>
+
+<script type="text/javascript">
+  // Render the Nano button
+  brainblocks.Button.render({
+
+    // Pass in payment options
+    payment: {
+      currency: 'rai',
+      amount: '1',
+      destination: 'xrb_1brainb3zz81wmhxndsbrjb94hx3fhr1fyydmg6iresyk76f3k7y7jiazoji'
+    },
+
+    // Handle successful payments
+    onPayment: function(data) {
+      // 4. Call BrainBlocks API to verify data.token
+      // See tab #2
+    }
+  }, '#nano-button');
+</script>

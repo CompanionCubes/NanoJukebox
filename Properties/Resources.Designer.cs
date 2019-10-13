@@ -111,6 +111,33 @@ namespace Nano_Jukebox.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;div id=&quot;nano-button&quot;&gt;&lt;/div&gt;
+        ///
+        ///&lt;script src=&quot;https://brainblocks.io/brainblocks.min.js&quot;&gt;&lt;/script&gt;
+        ///
+        ///&lt;script type=&quot;text/javascript&quot;&gt;
+        ///  // Render the Nano button
+        ///  brainblocks.Button.render({
+        ///
+        ///    // Pass in payment options
+        ///    payment: {
+        ///      currency: &apos;rai&apos;,
+        ///      amount: &apos;1&apos;,
+        ///      destination: &apos;xrb_1brainb3zz81wmhxndsbrjb94hx3fhr1fyydmg6iresyk76f3k7y7jiazoji&apos;
+        ///    },
+        ///
+        ///    // Handle successful payments
+        ///    onPayment: function(data) {
+        ///      // 4. Call BrainBlocks API to verify data.token
+        ///     [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Pay {
+            get {
+                return ResourceManager.GetString("Pay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap prev {

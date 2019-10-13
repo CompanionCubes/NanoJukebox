@@ -66,13 +66,15 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 39);
+            this.label1.Size = new System.Drawing.Size(123, 47);
             this.label1.TabIndex = 0;
             this.label1.Text = "Library";
+            this.label1.UseCompatibleTextRendering = true;
             // 
             // Panel_Library
             // 
-            this.Panel_Library.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Panel_Library.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel_Library.Controls.Add(this.Panel_LibrarySong);
             this.Panel_Library.Controls.Add(this.Label_LibraryPage);
             this.Panel_Library.Controls.Add(this.Button_LibraryNext);
@@ -84,9 +86,6 @@
             // 
             // Panel_LibrarySong
             // 
-            this.Panel_LibrarySong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel_LibrarySong.Controls.Add(this.label4);
             this.Panel_LibrarySong.Controls.Add(this.pictureBox3);
             this.Panel_LibrarySong.Controls.Add(this.Label_LibrarySongArtist);
@@ -94,40 +93,40 @@
             this.Panel_LibrarySong.Controls.Add(this.pictureBox2);
             this.Panel_LibrarySong.Location = new System.Drawing.Point(0, 0);
             this.Panel_LibrarySong.Name = "Panel_LibrarySong";
-            this.Panel_LibrarySong.Size = new System.Drawing.Size(190, 100);
+            this.Panel_LibrarySong.Size = new System.Drawing.Size(250, 100);
             this.Panel_LibrarySong.TabIndex = 3;
             this.Panel_LibrarySong.Visible = false;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AccessibleDescription = "LibraryPlayWith";
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(8, 64);
+            this.label4.Location = new System.Drawing.Point(75, 75);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 16);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Play With";
+            this.label4.Text = "Select Song";
+            this.label4.Click += new System.EventHandler(this.SelectSong);
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.AccessibleDescription = "LibraryNano";
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::Nano_Jukebox.Properties.Resources.nano_mark;
-            this.pictureBox3.Location = new System.Drawing.Point(76, 55);
+            this.pictureBox3.Location = new System.Drawing.Point(1, 75);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(96, 34);
+            this.pictureBox3.Size = new System.Drawing.Size(69, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
             // 
             // Label_LibrarySongArtist
             // 
-            this.Label_LibrarySongArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label_LibrarySongArtist.AccessibleDescription = "LibrarySongArtist";
             this.Label_LibrarySongArtist.AutoSize = true;
             this.Label_LibrarySongArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_LibrarySongArtist.ForeColor = System.Drawing.Color.White;
@@ -140,8 +139,6 @@
             // Label_LibrarySongTitle
             // 
             this.Label_LibrarySongTitle.AccessibleDescription = "LibrarySongTitle";
-            this.Label_LibrarySongTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Label_LibrarySongTitle.AutoSize = true;
             this.Label_LibrarySongTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_LibrarySongTitle.ForeColor = System.Drawing.Color.White;
@@ -153,6 +150,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.AccessibleDescription = "LibraryAlbumArt";
             this.pictureBox2.Location = new System.Drawing.Point(3, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
@@ -197,6 +195,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;

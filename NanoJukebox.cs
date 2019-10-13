@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
+using TagLib;
 
 namespace Nano_Jukebox
 {
@@ -47,44 +48,102 @@ namespace Nano_Jukebox
         public void GetSongs()
         {
             DirectoryInfo dir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
-            String[] extensions =new[] {".m4a",".mp3" };
-            FileInfo[] songs = dir.EnumerateFiles().Where(f => )
+            String[] extensions =new[] {".m4a",".mp3", ".wav" };
+            FileInfo[] songs = dir.EnumerateFiles().Where(f => extensions.Contains(f.Extension.ToLower())).ToArray();
+
+            int width = 250;
+            int height = 100;
 
             int x = 0;
             int y = 0;
-            int test_i = 0;
             foreach (FileInfo song in songs)
             {
-                Console.WriteLine(song.ToString());
+                TagLib.File tagfile = TagLib.File.Create(song.FullName);
+                string songTitle = tagfile.Tag.Title;
+                if (songTitle == null)
+                    songTitle = song.Name;
+                string songArtist = tagfile.Tag.FirstAlbumArtist;
+                string songAlbum = tagfile.Tag.Album;
 
                 Panel NewPanel = new Panel();
-                //NewPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                NewPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                 System.Drawing.Point loc = new System.Drawing.Point(x, y);
                 NewPanel.Location = loc;
+                NewPanel.Size = Panel_LibrarySong.Size;
                 Panel_Library.Controls.Add(NewPanel);
 
                 foreach (Control c in Panel_LibrarySong.Controls)
                 {
-                    if (c.AccessibleDescription == "LibrarySongTitle")
+                    if (c.AccessibleDescription == "LibraryAlbumArt")
                     {
-                        test_i++;
-                        Console.WriteLine(test_i);
-                        Label l = (Label)c;
-                        l.Text = song.ToString();
-                        Console.WriteLine(l.Text);
+                        PictureBox LibraryAlbumArt = new PictureBox();
+                        LibraryAlbumArt.Location = c.Location;
+                        LibraryAlbumArt.Size = c.Size;
+                        NewPanel.Controls.Add(LibraryAlbumArt);
                     }
-                    NewPanel.Controls.Add(c);
+                    else if (c.AccessibleDescription == "LibrarySongTitle")
+                    {
+                        Label LibrarySongTitle = new Label();
+                        LibrarySongTitle.Location = c.Location;
+                        LibrarySongTitle.Text = songTitle;
+                        LibrarySongTitle.Font = c.Font;
+                        LibrarySongTitle.ForeColor = c.ForeColor;
+                        LibrarySongTitle.Width = 150;
+                        NewPanel.Controls.Add(LibrarySongTitle);
+                    }
+                    else if (c.AccessibleDescription == "LibrarySongArtist")
+                    {
+                        Label LibrarySongArtist = new Label();
+                        LibrarySongArtist.Location = c.Location;
+                        LibrarySongArtist.Text = songArtist;
+                        LibrarySongArtist.Font = c.Font;
+                        LibrarySongArtist.ForeColor = c.ForeColor;
+                        NewPanel.Controls.Add(LibrarySongArtist);
+                    }
+                    else if (c.AccessibleDescription == "LibraryPlayWith")
+                    {
+                        Label copy = (Label)c; //needs to be cast as a Label to retrieve borderstyle
+                        Label LibraryPlayWith = new Label();
+                        LibraryPlayWith.Location = c.Location;
+                        LibraryPlayWith.Text = c.Text;
+                        LibraryPlayWith.Font = c.Font;
+                        LibraryPlayWith.ForeColor = c.ForeColor;
+                        LibraryPlayWith.Size = c.Size;
+                        LibraryPlayWith.BorderStyle = copy.BorderStyle;
+                        LibraryPlayWith.Cursor = c.Cursor;
+                        LibraryPlayWith.Click += SelectSong;
+                        NewPanel.Controls.Add(LibraryPlayWith);
+                    }
+                    /*
+                    else if (c.AccessibleDescription == "LibraryNano")
+                    {
+                        PictureBox copy = (PictureBox)c; //needs to be cast as PictureBox to retrieve image & sizemode from
+                        PictureBox LibraryNano = new PictureBox();
+                        LibraryNano.Location = c.Location;
+                        LibraryNano.Size = c.Size;
+                        LibraryNano.Image = copy.Image;
+                        LibraryNano.Cursor = c.Cursor;
+                        LibraryNano.SizeMode = copy.SizeMode;
+                        NewPanel.Controls.Add(LibraryNano);
+                    }
+                    */
                 }
 
-                x = x + 190;
-                if (x > 190 * 6)
+                x = x + width;
+                if (x > width * 6)
                 {
                     x = 0;
-                    y = y + 100;
+                    y = y + height;
                 }
-                if (y > 100)
+                if (y > height)
                     break;
             }
+        }
+
+        private void SelectSong(object sender, EventArgs e)
+        {
+            Pay payForm = new Pay();
+            payForm.Show();
         }
     }
 }
